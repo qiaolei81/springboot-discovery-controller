@@ -1,0 +1,21 @@
+{
+  "mappings": [
+    {
+      "ApiVersion": "2022-07-01-preview",
+      "ResourceType": "springbootservers",
+      "ProviderName": "Microsoft.SpringBootSites",
+      "ResourceMapping":
+      {
+        "Version": "v1",
+        "Group": "springbootsites.microsoft.com",
+        "Kind": "SpringBootServer",
+        "Name": "springbootservers",
+        "IsAsync": "false",
+        "Liquid": {
+          "AzureToKubernetes": "azure/springbootservers/azureTransform.json>",
+          "KubernetesToAzure": "azure/springbootservers/kubernetesTransform.json>"
+        }
+      }
+    }
+  ]
+}
