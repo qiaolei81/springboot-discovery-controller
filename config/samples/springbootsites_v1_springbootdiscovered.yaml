@@ -1,0 +1,6 @@
+apiVersion: springbootsites.microsoft.com/v1
+kind: SpringBootDiscovered
+metadata:
+  name: springbootdiscovered-sample
+spec:
+  # TODO(user): Add fields here

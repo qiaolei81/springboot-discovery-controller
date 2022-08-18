@@ -1,0 +1,24 @@
+domain: microsoft.com
+layout:
+- go.kubebuilder.io/v4-alpha
+projectName: springboot-discovery-controller
+repo: microsoft.com/springboot-discovery-controller
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: microsoft.com
+  group: springbootsites
+  kind: SpringBootServer
+  path: microsoft.com/springboot-discovery-controller/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: microsoft.com
+  group: springbootsites
+  kind: SpringBootDiscovered
+  path: microsoft.com/springboot-discovery-controller/api/v1
+  version: v1
+version: "3"

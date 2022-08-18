@@ -1,0 +1,20 @@
+# permissions for end users to view springbootservers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: springbootserver-viewer-role
+rules:
+- apiGroups:
+  - springbootsites.microsoft.com
+  resources:
+  - springbootservers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - springbootsites.microsoft.com
+  resources:
+  - springbootservers/status
+  verbs:
+  - get

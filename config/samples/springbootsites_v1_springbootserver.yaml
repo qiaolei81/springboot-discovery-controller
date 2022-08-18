@@ -1,0 +1,7 @@
+apiVersion: springbootsites.microsoft.com/v1
+kind: SpringBootServer
+metadata:
+  name: springbootserver-google
+spec:
+  server: https://google.com
+  # TODO(user): Add fields here
