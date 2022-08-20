@@ -5,7 +5,7 @@
   "metadata: {
     "name": {{ metadata.AzureContext.azureUID | json }},
     "namespace": "springbootsites"
-  }
+  },
   "spec": {
     "server": {{ resource.server }}
   }
