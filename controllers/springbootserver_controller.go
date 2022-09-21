@@ -64,6 +64,15 @@ func (r *SpringBootServerReconciler) Reconcile(ctx context.Context, req ctrl.Req
 
 	hooks := Hooks[springbootsitesv1.SpringBootServer]{
 		Upsert: func(springBoot *springbootsitesv1.SpringBootServer) error {
+			existed := springbootsitesv1.SpringBootDiscovered{}
+			if e := r.Get(ctx, req.NamespacedName, &existed); e != nil {
+				if errors.IsNotFound(e) {
+					return r.Create(ctx, springBoot)
+				} else {
+					return err
+				}
+			}
+			springBoot.ResourceVersion = existed.ResourceVersion
 			return r.Update(ctx, springBoot)
 		},
 		UpdateStatus: func(springBoot *springbootsitesv1.SpringBootServer) error {
@@ -84,6 +93,7 @@ func (r *SpringBootServerReconciler) Reconcile(ctx context.Context, req ctrl.Req
 					return err
 				}
 			}
+			discovered.ResourceVersion = existed.ResourceVersion
 			return r.Update(ctx, discovered)
 		},
 		UpdateStatus: func(discovered *springbootsitesv1.SpringBootDiscovered) error {
