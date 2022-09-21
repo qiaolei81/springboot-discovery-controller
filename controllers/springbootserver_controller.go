@@ -96,19 +96,16 @@ func (r *SpringBootServerReconciler) Reconcile(ctx context.Context, req ctrl.Req
 
 	model := NewModel(springBoot, hooks, hooksForDiscovered, toDelete, log.Log)
 
-	defer func() {
-		var e error
-		if err != nil {
-			e = model.markAsFailed(err)
-		} else {
-			e = model.markAsReconciled()
-		}
-
-		if e != nil {
-			log.Log.Error(err, "Failed to mark SpringBoot status")
-		}
-	}()
+	var e error
 	err = model.Reconcile()
+	if err != nil {
+		e = model.markAsFailed(err)
+	} else {
+		e = model.markAsReconciled()
+	}
+	if e != nil {
+		err = e
+	}
 	return ctrl.Result{}, err
 }
 

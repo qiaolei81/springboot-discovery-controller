@@ -31,3 +31,21 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - springbootsites.microsoft.com
+  resources:
+  - springbootdiscovereds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - springbootsites.microsoft.com
+  resources:
+  - springbootdiscovereds/status
+  verbs:
+  - get

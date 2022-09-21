@@ -119,7 +119,6 @@ subjects:
 
 
 ---
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -152,6 +151,24 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - springbootsites.microsoft.com
+  resources:
+  - springbootdiscovereds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - springbootsites.microsoft.com
+  resources:
+  - springbootdiscovereds/status
+  verbs:
+  - get
 
 
 ---
