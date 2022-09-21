@@ -169,6 +169,8 @@ rules:
   - springbootdiscovereds/status
   verbs:
   - get
+  - patch
+  - update
 
 
 ---
